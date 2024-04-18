@@ -24,10 +24,11 @@ function App() {
 			// yes, we can add it to an entire timeline!
 			scrollTrigger: {
 				trigger: ".main-container",
-				pin: true, // pin the trigger element while active
+				pin: true, // pin the trigger element while active,
+				anticipatePin: 1,
 				// pinSpacing: false,
 				start: "top bottom", // when the top of the trigger hits the bottom of the viewport
-				end: "+=4000", // end after scrolling 500px beyond the start
+				end: "+=2000", // end after scrolling 500px beyond the start
 				scrub: 0.2, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
 				// snap: {
 				// 	snapTo: "labels", // snap to the closest label in the timeline
@@ -35,14 +36,27 @@ function App() {
 				// 	delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
 				// },
 			},
-		}).addLabel("first")
+		})
+		.addLabel("show")
 		.to(".container", {
-			y: '-100%'
+			width: '100vw',
+			height: '100vh',
+			// y: '-50%'
 		})
 		.addLabel("second")
 		.to(".container", {
-			scale: 3.33
+			width: '100vw',
+			height: '100vh',
+			y: '-50%'
 		})
+		// .addLabel("second")
+		// .to(".container", {
+		// 	y: '-150%'
+		// })
+		// .addLabel("third")
+		// .to(".container", {
+		// 	scale: 3.3
+		// })
 		// .addLabel("third" )
 		// .to(".s1", { y: 0})
 		// .addLabel("fourth")
@@ -66,19 +80,19 @@ function App() {
 				</div>
 			</div>
 			<div className="section s1">
-				
+
 			</div>
 			<div className="section s2">
-				
+
 			</div>
 			<div className="section s3">
-				
+
 			</div>
 			<div className="section s4">
-				
+
 			</div>
 			<div className="section s5">
-				
+
 			</div>
 		</div>
 	);
