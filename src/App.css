@@ -13,17 +13,33 @@ header {
   width: 30vw;
   height: 50vh;
   padding: 1rem;
-  background-color: aquamarine;
   margin: 2rem auto;
+  background-image: url("./../public/3.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .section {
   height: 100vh;
   border: 1px solid black;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.s1 { background-color: tomato;}
-.s2 { background-color: dodgerblue;}
-.s3 { background-color: yellowgreen;}
-.s4 { background-color: yellow;}
+.s1 { 
+  background-image: url("./../public/1.jpg");
+}
+.s2 { 
+  background-image: url("./../public/2.jpg");
+}
+.s3 { 
+  background-image: url("./../public/3.jpg");
+}
+.s4 { 
+  background-image: url("./../public/1.jpg");
+}
 

@@ -23,9 +23,9 @@ function App() {
 		gsap.timeline({
 			// yes, we can add it to an entire timeline!
 			scrollTrigger: {
-				trigger: ".container",
+				trigger: ".main-container",
 				pin: true, // pin the trigger element while active
-				pinSpacing: false,
+				// pinSpacing: false,
 				start: "top bottom", // when the top of the trigger hits the bottom of the viewport
 				end: "+=4000", // end after scrolling 500px beyond the start
 				scrub: 0.2, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
@@ -43,12 +43,12 @@ function App() {
 		.to(".container", {
 			scale: 3.33
 		})
-		.addLabel("third" )
-		.fromTo(".s1", { y: '100%'}, { y: 0})
-		.addLabel("fourth")
-		.fromTo(".s1", { y: '100%'}, { y: 0})
-		.addLabel("fifth")
-		.fromTo(".s3", { y: '100%'}, { y: 0})
+		// .addLabel("third" )
+		// .to(".s1", { y: 0})
+		// .addLabel("fourth")
+		// .to(".s2", { y: 0})
+		// .addLabel("fifth")
+		// .to(".s3", { y: 0})
 
 		
 	}, { scope: main })
@@ -60,14 +60,26 @@ function App() {
 					GSAP animations
 				</header>
 			</div>
-			<div ref={container} className='container'>
-				Hello
+			<div className="main-container">
+				<div ref={container} className='container'>
+					Hello
+				</div>
 			</div>
-			<div className="section s1"></div>
-			<div className="section s2"></div>
-			<div className="section s3"></div>
-			<div className="section s4"></div>
-			<div className="section s5"></div>
+			<div className="section s1">
+				
+			</div>
+			<div className="section s2">
+				
+			</div>
+			<div className="section s3">
+				
+			</div>
+			<div className="section s4">
+				
+			</div>
+			<div className="section s5">
+				
+			</div>
 		</div>
 	);
 }
