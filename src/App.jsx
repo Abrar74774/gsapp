@@ -19,47 +19,43 @@ function App() {
 		// 	end: "+=1200",
 		// 	markers: true
 		// });
-		gsap.to(".container", {
-			y: '-100%',
-			scrollTrigger: {
-				markers: true,
-				trigger: ".container",
-				pin: true,
-				anticipatePin: 1,
-				start: "top top",
-				end: "+=500"
-			}
-		})
 
-		gsap.to(".container", {
-			scale: '0.2',
-			duration: 1,
+		gsap.timeline({
+			// yes, we can add it to an entire timeline!
 			scrollTrigger: {
-				markers: true,
-				trigger: ".s2",
-				pin: true,
-				anticipatePin: 1,
-				start: "top bottom",
-				end: "+=500"
-			}
+				trigger: ".container",
+				pin: true, // pin the trigger element while active
+				pinSpacing: false,
+				start: "top bottom", // when the top of the trigger hits the bottom of the viewport
+				end: "+=4000", // end after scrolling 500px beyond the start
+				scrub: 0.2, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+				// snap: {
+				// 	snapTo: "labels", // snap to the closest label in the timeline
+				// 	duration: { min: 0.2, max: 3 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
+				// 	delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
+				// },
+			},
+		}).addLabel("first")
+		.to(".container", {
+			y: '-100%'
 		})
+		.addLabel("second")
+		.to(".container", {
+			scale: 3.33
+		})
+		.addLabel("third" )
+		.fromTo(".s1", { y: '100%'}, { y: 0})
+		.addLabel("fourth")
+		.fromTo(".s1", { y: '100%'}, { y: 0})
+		.addLabel("fifth")
+		.fromTo(".s3", { y: '100%'}, { y: 0})
+
 		
-		// gsap.to(".container", {
-		// 	width: '100%',
-		// 	height: '100%',
-		// 	scrollTrigger: {
-		// 		trigger: ".container",
-		// 		pin: true,
-		// 		anticipatePin: 1,
-		// 		start: "top bottom",
-		// 		end: "+=400"
-		// 	}
-		// })
-	}, {scope: main})
+	}, { scope: main })
 
 	return (
 		<div className="App" ref={main}>
-			<div style={{ height: '50vh'}}>
+			<div style={{ height: '100vh' }}>
 				<header className="App-header">
 					GSAP animations
 				</header>
