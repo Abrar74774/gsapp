@@ -91,26 +91,46 @@ header {
   background-repeat: no-repeat;
 }
 
-/* .s1 { 
+.s1 .bg { 
   background-image: url("./../public/1.jpg");
 }
-.s2 { 
+.s2 .bg { 
   background-image: url("./../public/2.jpg");
 }
-.s3 { 
+.s3 .bg { 
   background-image: url("./../public/3.jpg");
 }
-.s4 { 
+.s4 .bg { 
   background-image: url("./../public/1.jpg");
-} */
+}
 
+.remaining-container {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+}
 
 .remaining {
   height: 100vh;
+  width: 100%;
+  position: absolute;
 }
 .second-header {
   text-align: center;
   padding: 1rem 0;
   background-color: antiquewhite;
+}
+
+.hero {
+  width: 100vw;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f5f2;
+}
+
+.hero .title {
+  font-size: 5rem;
 }
 
