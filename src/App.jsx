@@ -2,9 +2,11 @@ import './App.css';
 import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { TextPlugin } from 'gsap/TextPlugin'
+
 import { useGSAP } from "@gsap/react";
 
-gsap.registerPlugin(useGSAP, ScrollTrigger);
+gsap.registerPlugin(useGSAP, ScrollTrigger, TextPlugin);
 
 function App() {
 
@@ -12,13 +14,9 @@ function App() {
 	const main = useRef()
 
 	useGSAP(() => {
-		// ScrollTrigger.create({
-		// 	trigger: ".container",
-		// 	pin: true,
-		// 	start: "top top",
-		// 	end: "+=1200",
-		// 	markers: true
-		// });
+
+		const menuUp = "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)";
+		const menuDown = "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)";
 
 		gsap.timeline({
 			// yes, we can add it to an entire timeline!
@@ -27,7 +25,7 @@ function App() {
 				pin: true, // pin the trigger element while active,
 				anticipatePin: 1,
 				// pinSpacing: false,
-				start: "top bottom", // when the top of the trigger hits the bottom of the viewport
+				start: "top top", // when the top of the trigger hits the bottom of the viewport
 				end: "+=2000", // end after scrolling 500px beyond the start
 				scrub: 0.2, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
 				// snap: {
@@ -37,18 +35,28 @@ function App() {
 				// },
 			},
 		})
-		.addLabel("show")
-		.to(".container", {
-			width: '100vw',
-			height: '100vh',
-			// y: '-50%'
-		})
-		.addLabel("second")
-		.to(".container", {
-			width: '100vw',
-			height: '100vh',
-			y: '-50%'
-		})
+			.addLabel("show")
+			.from(".container", {
+				height: 0,
+				bottom: 0,
+				yPercent: 100
+			})
+			.addLabel("showText")
+			.fromTo(
+				".text",
+				{ y: "100%", stagger: 0.1 },
+				{ y: "0", stagger: 0.1 }
+			)
+			.addLabel("center")
+			.to(".container", {
+				top: '50%',
+				yPercent: -50
+			})
+			.addLabel("expand")
+			.to(".container", {
+				height: '100vh',
+				width: '100vw',
+			})
 		// .addLabel("second")
 		// .to(".container", {
 		// 	y: '-150%'
@@ -64,7 +72,7 @@ function App() {
 		// .addLabel("fifth")
 		// .to(".s3", { y: 0})
 
-		
+
 	}, { scope: main })
 
 	return (
@@ -75,6 +83,19 @@ function App() {
 				</header>
 			</div>
 			<div className="main-container">
+				<div className="text-container">
+					<div className="text-line">
+						<div className="text">
+							EXPERIENCE A
+						</div>
+
+					</div>
+					<div className="text-line">
+						<div className="text">
+							PEERLESS
+						</div>
+					</div>
+				</div>
 				<div ref={container} className='container'>
 					Hello
 				</div>
