@@ -20,7 +20,7 @@ function App() {
 			scrollTrigger: {
 				trigger: ".main-container",
 				pin: true, // pin the trigger element while active,
-				anticipatePin: 1,
+				// anticipatePin: 1,
 				// pinSpacing: false,
 				start: "top top", // when the top of the trigger hits the bottom of the viewport
 				end: "+=2000", // end after scrolling 2000px beyond the start
@@ -44,16 +44,20 @@ function App() {
 				{ y: "100%", stagger: 0.1 },
 				{ y: "0", stagger: 0.1 }
 			)
+			
 			.addLabel("center")
 			.to(".container", {
 				top: '50%',
 				yPercent: -50
 			})
 			.addLabel("expand")
-			.to(".container", {
+			.fromTo(".container", {
+				backgroundSize: 'cover',
+			},{
 				height: '100vh',
 				width: '100vw',
 				backgroundSize: '100vh 100vw',
+				ease: "none"
 			})
 
 			gsap.timeline({
@@ -64,16 +68,11 @@ function App() {
 					end: "top top", // end after scrolling 2000px beyond the start
 					scrub: true,
 					invalidateOnRefresh: true 
-					// snap: {
-					// 	snapTo: "labels", // snap to the closest label in the timeline
-					// 	duration: { min: 0.2, max: 3 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
-					// 	delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
-					// },
 				},
 			})
 				.addLabel("fix")
 				.fromTo(".container .bg", {
-					backgroundPosition: "center 0vh"
+					backgroundPosition: "center 0"
 				}, {
 					backgroundPosition: "center 100vh",
 					ease: "none",
