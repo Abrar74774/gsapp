@@ -30,7 +30,7 @@ header {
 }
 
 .container .bg {
-  background-image: url("./../public/3.jpg");
+  background-image: url("./../public/4.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -62,6 +62,14 @@ header {
   transform: rotate(-10deg) translateY(-40px);
   overflow: hidden;
 }
+
+.content {
+  display: flex;
+  padding: 3rem;
+  justify-content: center;
+}
+
+.content * { width:  50%; display: block;}
 
 
 /* .section {

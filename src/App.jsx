@@ -47,10 +47,10 @@ function App() {
 			)
 			.addLabel("showCursive")
 			.from(
-				".cursive", {xPercent: -100, y: 0},
+				".cursive", { xPercent: -100, y: 0 },
 			)
 			.from(
-				".cursive-text", {xPercent: 100, y: 40},
+				".cursive-text", { xPercent: 100, y: 40 },
 				"<"
 			)
 			.addLabel("center")
@@ -61,28 +61,28 @@ function App() {
 			.addLabel("expand")
 			.fromTo(".container", {
 				backgroundSize: 'cover',
-			},{
+			}, {
 				height: '100vh',
 				width: '100vw',
 				backgroundSize: '100vh 100vw',
 				ease: "none"
 			})
 
-			gsap.timeline({
-				scrollTrigger: {
-					trigger: ".s1",
-					start: "top bottom", 
-					end: "top top", 
-					scrub: true,
-					invalidateOnRefresh: true 
-				},
-			})
-				.addLabel("fix")
-				.fromTo(".container .bg", {
-					backgroundPosition: "center 0"
-				}, {
-					backgroundPosition: "center 100vh",
-					ease: "none",
+		gsap.timeline({
+			scrollTrigger: {
+				trigger: ".s1",
+				start: "top bottom",
+				end: "top top",
+				scrub: true,
+				invalidateOnRefresh: true
+			},
+		})
+			.addLabel("fix")
+			.fromTo(".container .bg", {
+				backgroundPosition: "center 0"
+			}, {
+				backgroundPosition: "center 100vh",
+				ease: "none",
 			})
 
 		gsap.utils.toArray(".section").forEach((section, i) => {
@@ -121,16 +121,22 @@ function App() {
 				ease: "none"
 			})
 
-
+			// gsap.timeline({
+			// 	scrollTrigger: {
+			// 		trigger: ".remaining-container",
+			// 		start: "top top"
+			// 	}
+			// })
+			// .addLabel("setToNormal")
+			// .set(".remaining-content, .remaining", {
+			// 	height: "200vh",
+			// })
 
 	}, { scope: main })
 
 	return (
 		<div className="App" ref={main}>
 			<div style={{ height: '100vh' }}>
-				<header className="App-header">
-					GSAP animations
-				</header>
 			</div>
 			<div className="main-container">
 				<div className="text-container">
@@ -138,7 +144,6 @@ function App() {
 						<div className="text">
 							EXPERIENCE A
 						</div>
-
 					</div>
 					<div className="text-line">
 						<div className="text">
@@ -183,6 +188,14 @@ function App() {
 							Text <br />
 							Here
 						</div>
+					</div>
+					<div className="content">
+						<img src="5.jpg" alt="a cityscape" />
+						<div></div>
+					</div>
+					<div className="content">
+						<div></div>
+						<img src="6.jpg" alt="a cityscape 2" />
 					</div>
 				</div>
 			</div>
