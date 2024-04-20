@@ -28,8 +28,10 @@ header {
   margin-right: auto; 
   width: 30vw;
   height: 50vh;
+}
+
+.container .bg {
   background-image: url("./../public/3.jpg");
-  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100vw 100vh;
@@ -79,6 +81,7 @@ header {
   align-items: center;
   justify-content: center;
 }
+
 .bg {
   position: absolute;
   top: 0;

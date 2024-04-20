@@ -53,6 +53,30 @@ function App() {
 			.to(".container", {
 				height: '100vh',
 				width: '100vw',
+				backgroundSize: '100vh 100vw',
+			})
+
+			gsap.timeline({
+				// yes, we can add it to an entire timeline!
+				scrollTrigger: {
+					trigger: ".s1",
+					start: "top bottom", // when the top of the trigger hits the bottom of the viewport
+					end: "top top", // end after scrolling 2000px beyond the start
+					scrub: true,
+					invalidateOnRefresh: true 
+					// snap: {
+					// 	snapTo: "labels", // snap to the closest label in the timeline
+					// 	duration: { min: 0.2, max: 3 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
+					// 	delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
+					// },
+				},
+			})
+				.addLabel("fix")
+				.fromTo(".container .bg", {
+					backgroundPosition: "center 0vh"
+				}, {
+					backgroundPosition: "center 100vh",
+					ease: "none",
 			})
 
 		gsap.utils.toArray(".section").forEach((section, i) => {
@@ -83,15 +107,15 @@ function App() {
 				invalidateOnRefresh: true // to make it responsive
 			}
 		})
-		.addLabel("fix")
-		.fromTo(".remaining", {
-			top: '-100vh'
-		}, {
-			top: '100vh',
-			ease:"none"
-		})
+			.addLabel("fix")
+			.fromTo(".remaining", {
+				top: '-100vh'
+			}, {
+				top: '100vh',
+				ease: "none"
+			})
 
-		
+
 
 	}, { scope: main })
 
@@ -122,7 +146,9 @@ function App() {
 					</div>
 				</div>
 				<div ref={container} className='container'>
-					Hello
+					<div className="bg">
+
+					</div>
 				</div>
 			</div>
 			<div className="sections-container">
