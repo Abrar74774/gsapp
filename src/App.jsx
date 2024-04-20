@@ -34,10 +34,11 @@ function App() {
 		})
 			.addLabel("show")
 			.from(".container", {
-				height: 0,
-				bottom: 0,
 				yPercent: 100
 			})
+			.from(".container .bg", {
+				yPercent: -100,
+			}, "<")
 			.addLabel("showText")
 			.fromTo(
 				".text",
@@ -46,7 +47,7 @@ function App() {
 			)
 			.addLabel("showCursive")
 			.from(
-				".cursive", {xPercent: -100, y: 40},
+				".cursive", {xPercent: -100, y: 0},
 			)
 			.from(
 				".cursive-text", {xPercent: 100, y: 40},
