@@ -143,3 +143,9 @@ header {
   font-size: 5rem;
 }
 
+
+@media screen and (max-width: 600px) {
+  .text-container {
+    width: 90vw;
+  }
+}
