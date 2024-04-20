@@ -42,9 +42,16 @@ function App() {
 			.fromTo(
 				".text",
 				{ y: "100%", stagger: 0.1 },
-				{ y: "0", stagger: 0.1 }
+				{ y: "0", stagger: 0.1 },
 			)
-			
+			.addLabel("showCursive")
+			.from(
+				".cursive", {xPercent: -100, y: 40},
+			)
+			.from(
+				".cursive-text", {xPercent: 100, y: 40},
+				"<"
+			)
 			.addLabel("center")
 			.to(".container", {
 				top: '50%',
@@ -61,11 +68,10 @@ function App() {
 			})
 
 			gsap.timeline({
-				// yes, we can add it to an entire timeline!
 				scrollTrigger: {
 					trigger: ".s1",
-					start: "top bottom", // when the top of the trigger hits the bottom of the viewport
-					end: "top top", // end after scrolling 2000px beyond the start
+					start: "top bottom", 
+					end: "top top", 
 					scrub: true,
 					invalidateOnRefresh: true 
 				},
@@ -90,7 +96,7 @@ function App() {
 					start: "top bottom",
 					end: "bottom top",
 					scrub: true,
-					invalidateOnRefresh: true // to make it responsive
+					invalidateOnRefresh: true
 				}
 			});
 
@@ -103,7 +109,7 @@ function App() {
 				start: "top bottom",
 				end: "bottom top",
 				scrub: true,
-				invalidateOnRefresh: true // to make it responsive
+				invalidateOnRefresh: true
 			}
 		})
 			.addLabel("fix")
@@ -139,7 +145,7 @@ function App() {
 						</div>
 					</div>
 					<div className="cursive">
-						<div className="text">
+						<div className="cursive-text">
 							Escape
 						</div>
 					</div>
