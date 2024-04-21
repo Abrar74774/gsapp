@@ -23,8 +23,8 @@ function App() {
 				// anticipatePin: 1,
 				// pinSpacing: false,
 				start: "top top", // when the top of the trigger hits the bottom of the viewport
-				end: "+=2000", // end after scrolling 2000px beyond the start
-				scrub: 0.2, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+				end: "+=3000", // end after scrolling 2000px beyond the start
+				scrub: 1.5, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
 				// snap: {
 				// 	snapTo: "labels", // snap to the closest label in the timeline
 				// 	duration: { min: 0.2, max: 3 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
@@ -65,7 +65,12 @@ function App() {
 				height: '100vh',
 				width: '100vw',
 				backgroundSize: '100vh 100vw',
-				ease: "none"
+				ease: "power1.inOut",
+				duration: 1,
+			})
+			.addLabel("delay")
+			.to(".main-container",{
+				delay: 0.1
 			})
 
 		gsap.timeline({
